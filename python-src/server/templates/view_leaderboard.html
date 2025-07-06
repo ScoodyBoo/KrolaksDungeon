@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #1e1e1e;
+        }
+
+        .tank {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100px;
+            animation: moveTank 4s infinite alternate linear;
+            transform: scaleX(1);
+            animation-name: moveTankWithFlip;
+        }
+
+        @keyframes moveTankWithFlip {
+            from {
+                left: 0;
+                transform: scaleX(1);
+            }
+            to {
+                /* left: calc(100vw - 100px); */
+                transform: scaleX(-1);
+            }
+        }
+
+
+
+        @keyframes spinInPlace {
+            0% {
+                transform: scaleX(0);
+                transform: scaleY(1);
+            }
+            25% {
+                transform: scaleX(1);
+            }
+            50% {
+                transform: scaleX(0);
+                transform: scaleY(1.1);
+            }			
+            75% {
+                transform: scaleX(-1);
+            }
+            100% {
+                transform: scaleX(0);
+                transform: scaleY(1);
+            }
+        }
+
+        .tank-spin {
+            animation: spinInPlace 2s linear infinite;
+        }
+
+
+
+
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <header class="bg-white shadow px-6 py-4 text-xl font-bold text-center">
+        Deck Of Treads – Leaderboard
+        <img src="img/header.jpg" alt="Tank" class="tank-spin w-460 h-215">
+        
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-10 flex flex-col gap-4">
+        
+        {% for card in cards %}
+            {{ card | safe }}
+        {% endfor %}
+        
+    </main>
+    
+    <!-- <img src="img/tank.png" alt="Tank" class="tank"> -->
+
+</body>
+</html>

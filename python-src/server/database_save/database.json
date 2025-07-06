@@ -1,0 +1,34 @@
+{
+    "QID1": {
+        "online": false,
+        "user_data": {
+            "username": "user",
+            "passcode": "password",
+            "email": "jeff@mail.com"
+        }
+    },
+    "jeff": {
+        "online": false,
+        "user_data": {
+            "username": "jeff",
+            "passcode": "password",
+            "email": "user@mail.com"
+        }
+    },
+    "password": {
+        "online": false,
+        "user_data": {
+            "username": "password",
+            "passcode": "password",
+            "email": "user@mail.com"
+        }
+    },
+    "username": {
+        "online": false,
+        "user_data": {
+            "username": "username",
+            "passcode": "password",
+            "email": "username@gmail.com"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck Of Treads: My Tank GDC</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- HTMX CDN -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center" x-data="{ open: false }">
+            <h1 class="text-xl font-bold">Deck Of Treads - GDC Booth 2025</h1>
+            <button @click="open = !open" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-4">
+                <a href="/stats" class="hover:text-blue-600">GDC Booth Info</a>
+            </nav>
+            <!-- Mobile Nav -->
+            <div x-show="open" class="md:hidden flex flex-col gap-2 mt-4">
+                <a href="/stats" class="hover:text-blue-600">GDC Booth Info</a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-4 py-10 text-center">
+        <h2 class="text-3xl font-bold mb-4">Leaderboard</h2>
+        <p class="mb-6 text-gray-600">Made By Joshyboy</p>
+    </section>
+
+    <div hx-get="/tank_card" hx-trigger="every 1s" hx-swap="outerHTML">
+        Loading card
+    </div>
+
+</body>
+</html>
